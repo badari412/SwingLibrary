@@ -77,6 +77,16 @@ public class ListKeywords extends IdentifierSupport {
         CollectionUtils.addAll(itemIdentifiers, additionalItemIdentifiers);
         return itemIdentifiers;
     }
+    
+    @RobotKeyword("Right Clicks on a list item.\n\n"
+            + "Examples:\n"
+            + "| Right click On List Item | _myList_ | _myItem_ |\n"
+            + "| Right click On List Item | _myList_ | _0_      | \n\n")
+    @ArgumentNames({ "identifier", "listItemIdentifier"})
+    public void rightClickOnListItem(String identifier, String listItemIdentifier) {
+    	clickOnListItem(identifier,listItemIdentifier);
+        createOperator(identifier).rightClickOnItem(listItemIdentifier);
+    }
 
     @RobotKeyword("Clicks on a list item.\n\n"
             + "Examples:\n"
@@ -147,4 +157,7 @@ public class ListKeywords extends IdentifierSupport {
     private ListOperator createOperator(String identifier) {
         return operatorFactory.createOperator(identifier);
     }
+    
+
+
 }

@@ -1,6 +1,8 @@
 package org.robotframework.swing.list;
 
 import java.awt.Component;
+import java.awt.Point;
+import java.awt.event.InputEvent;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,6 +40,14 @@ public class ListOperator extends IdentifierSupport implements ComponentWrapper 
     
     public void clickOnItem(String itemIdentifier, int clickCount) {
         jListOperator.clickOnItem(findIndex(itemIdentifier), clickCount);
+    }
+    
+    public void rightClickOnItem(String itemIdentifier) {
+        int indexOfSelectedValue = jListOperator.getSelectedIndex();
+        Point point = jListOperator.indexToLocation(indexOfSelectedValue);
+        int x1 = point.x;
+        int y1 = point.y;
+        jListOperator.clickMouse(x1, y1, 1, InputEvent.BUTTON3_MASK);
     }
 
     public void clearSelection() {

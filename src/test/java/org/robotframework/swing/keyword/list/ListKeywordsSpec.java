@@ -80,13 +80,14 @@ public class ListKeywordsSpec extends MockSupportSpecification<ListKeywords> {
         }
 
         public void clicksOnItem() {
-            checking(new Expectations() {{
+             checking(new Expectations() {{
                 one(listOperator).clickOnItem("someListItem", 1);
             }});
 
             context.clickOnListItem(listIdentifier, "someListItem");
         }
-                
+        
+       
         public void clicksWithAlternativeClickCount() {
             checking(new Expectations() {{
                 one(listOperator).clickOnItem("3", 2);
