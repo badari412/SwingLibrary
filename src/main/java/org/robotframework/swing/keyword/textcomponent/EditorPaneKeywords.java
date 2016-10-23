@@ -36,4 +36,12 @@ public class EditorPaneKeywords {
     public void clickHyperLink(String identifier, String linkText) {
         operatorFactory.createOperator(identifier).activateHyperLink(linkText);
     }
+    
+    @RobotKeyword("Gets text from a JEditorPane.\n"
+            + "Example:\n"
+            + "| Get EditorPane Text | _myEditor_\n")
+    @ArgumentNames({"identifier"})
+    public String getEditorPaneText(String identifier) {
+            return operatorFactory.createOperator(identifier).getEditorPaneText();
+    }
 }

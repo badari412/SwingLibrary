@@ -39,4 +39,14 @@ public class EditorPaneOperator {
             throw new RuntimeException(innerThrowable);
         }
     }
+    
+    public String getEditorPaneText() {
+        
+        try {
+            return editorPaneOperator.getText();
+        } catch (JemmyException e) {
+            Throwable innerThrowable = e.getInnerThrowable();
+            throw new RuntimeException(innerThrowable);
+        }
+    }
 }

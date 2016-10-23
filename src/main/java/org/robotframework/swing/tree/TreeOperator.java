@@ -18,6 +18,8 @@ package org.robotframework.swing.tree;
 
 import java.awt.Component;
 import java.awt.Point;
+import java.awt.Rectangle;
+import java.awt.event.InputEvent;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
@@ -140,6 +142,15 @@ public class TreeOperator implements ComponentWrapper {
 
     public void clickOnNode(String nodeIdentifier, int clickCount) {
         jTreeOperator.clickOnPath(createTreePath(nodeIdentifier), clickCount);
+    }
+  
+    public void rightClickOnNode(String nodeIdentifier) {
+        jTreeOperator.clickOnPath(createTreePath(nodeIdentifier), 1);
+        TreePath treePath = jTreeOperator.getSelectionPath();
+        Rectangle rect = jTreeOperator.getPathBounds(treePath);
+        int x = rect.x;
+        int y = rect.y;
+        jTreeOperator.clickMouse(x, y, 1, InputEvent.BUTTON3_MASK);
     }
     
     public JPopupMenuOperator createPopupOperator(String nodeIdentifier) {

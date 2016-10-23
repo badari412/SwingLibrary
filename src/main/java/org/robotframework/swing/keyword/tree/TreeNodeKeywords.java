@@ -117,6 +117,15 @@ public class TreeNodeKeywords extends TreeSupport {
         treeOperator(identifier).clickOnNode(nodeIdentifier, clickCount);
     }
 
+    @RobotKeyword("Right clicks on a tree node.\n\n"
+            + "Examples:\n"
+            + "| Right Click On Tree Node | _myTree_ | _0_      | \n\n")
+    @ArgumentNames({"identifier", "nodeIdentifier"})
+    public void rightClickOnTreeNode(String identifier, String nodeIdentifier) {
+        treeOperator(identifier).rightClickOnNode(nodeIdentifier);
+    }
+    
+    
     @RobotKeywordOverload
     public void clickOnTreeNode(String identifier, String nodeIdentifier) {
         clickOnTreeNode(identifier, nodeIdentifier, 1);

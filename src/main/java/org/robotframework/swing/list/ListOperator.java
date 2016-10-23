@@ -45,9 +45,9 @@ public class ListOperator extends IdentifierSupport implements ComponentWrapper 
     public void rightClickOnItem(String itemIdentifier) {
         int indexOfSelectedValue = jListOperator.getSelectedIndex();
         Point point = jListOperator.indexToLocation(indexOfSelectedValue);
-        int x1 = point.x;
-        int y1 = point.y;
-        jListOperator.clickMouse(x1, y1, 1, InputEvent.BUTTON3_MASK);
+        int x = point.x;
+        int y = point.y;
+        jListOperator.clickMouse(x, y, 1, InputEvent.BUTTON3_MASK);
     }
 
     public void clearSelection() {
